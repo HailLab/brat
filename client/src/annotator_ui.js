@@ -1813,6 +1813,7 @@ var AnnotatorUI = (function($, window, undefined) {
             svgElement.removeClass('reselect');
           } else
 */
+
           if (lockOptions) {
             spanFormSubmit();
             dispatcher.post('logAction', ['spanLockNewSubmitted']);
@@ -2854,6 +2855,28 @@ var AnnotatorUI = (function($, window, undefined) {
         that.user = _user;
       }
 
+      var annotateLine = function() {
+          /*
+          console.log($('.sentnum').length);
+          console.log($('.sentnum a').length);
+          $('.sentnum').on('click', 'a', function(evt) {
+              evt.preventDefault();
+              var span = data.spans[Object.keys(data.spans)[0]];
+              var text = $('.text text:nth-child(' + $(this).children('[data-sent]').data('sent') + ') tspan');
+              var spanText = $('.text text:nth-child(' + $(this).children('[data-sent]').data('sent') + ')').text().trim();
+              console.log(realBBox(text[2]));
+              console.log(span);
+              console.log(evt);
+              spanOptions = {
+                  action: 'createSpan',
+                  offsets: [parseInt(text[0].getAttribute('x')), parseInt(text[0].getAttribute('y'))]
+              }
+              fillSpanTypesAndDisplayForm(evt, spanText, span);
+              return false;
+          });
+          */
+      };
+
       var setAnnotationSpeed = function(speed) {
         if (speed == 1) {
           Configuration.confirmModeOn = true;
@@ -2905,6 +2928,7 @@ var AnnotatorUI = (function($, window, undefined) {
           on('annotationSpeed', setAnnotationSpeed).
           on('suggestedSpanTypes', receivedSuggestedSpanTypes).
           on('normGetNameResult', setSpanNormText).
+          on('annotateLine', annotateLine).
           on('normSearchResult', setSpanNormSearchResults);
     };
 

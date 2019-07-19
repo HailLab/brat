@@ -2864,6 +2864,7 @@ Util.profileStart('rows');
           y += Configuration.visual.margin.y;
         });
         y += Configuration.visual.margin.y;
+        dispatcher.post('annotateLine');
 
 Util.profileEnd('rows');
 Util.profileStart('chunkFinish');
